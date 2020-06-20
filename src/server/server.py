@@ -7,14 +7,18 @@ import bcrypt
 import uuid
 
 db = mysql.connect(
-	host = "localhost",
-	user = "root",
-	passwd = "BKNY1987",
-	database = "world")
+	host = "my-rds.ccig5nob4omq.us-east-1.rds.amazonaws.com",
+    user = "admin",
+    passwd = "BKNY1987",
+    database = "blog")
 print(db)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 CORS(app)
+
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -122,6 +126,12 @@ def get_all_posts():
 
 	return json.dumps(data, default=str)
 
+@app.route('/api/alive', methods=['GET'])
+def api_alive():
+	return "It's a new dawn, It's a new day, It's a new life for me and I'm feeling good!"
+
 
 if __name__ == "__main__":
 	app.run()
+
+
