@@ -4,14 +4,14 @@ import axios from "axios";
 
 class Posts extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             posts: []
         };
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/posts').then(res => {
+        axios.get('/posts').then(res => {
             this.setState({
                 posts: res.data,
             });

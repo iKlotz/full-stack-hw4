@@ -18,7 +18,7 @@ class Register extends React.Component {
         e.preventDefault();
         const {firstName, lastName, email, password} = this.state;
 
-        const url = "http://localhost:5000/register"
+        const url = "/register"
         const data = {
             email: email,
             password: password,

@@ -32,7 +32,7 @@ class NewPost extends React.Component {
             author: this.state.author,
         };
 
-        axios.post('http://localhost:5000/posts', data).then(res => {
+        axios.post('/posts', data).then(res => {
             //const post = res.data;
             this.setState({title: '',
                 content: '',

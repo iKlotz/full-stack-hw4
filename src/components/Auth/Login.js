@@ -18,7 +18,7 @@ class Login extends React.Component {
     onSubmit = e => {
         e.preventDefault();
         const {email, password} = this.state;
-        const url = "http://localhost:5000/login";
+        const url = "/login";
         const data = {
             email,
             password

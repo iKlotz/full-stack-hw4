@@ -33,7 +33,7 @@ class App extends React.Component {
     };
 
     onLogout = () => {
-        const url = "http://localhost:5000/logout";
+        const url = "/logout";
         const data = {
             user_id: this.state.id
         };
